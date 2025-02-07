@@ -294,16 +294,14 @@ def simulation(rseed, exp_coeff, min_delta, loss_rate, gain_rate, MATRIX, sub_ra
 		"""
 		L = len(seq)
 		mutations = np.random.poisson(L * val)
-		out=seq
+		out = list(seq)
 		selection = range(len(out))
-		j=0
-		while j <= mutations:
-			i = random.choice(selection)
+		pos_to_mutate = np.random.choice(selection, mutations)
+		for i in pos_to_mutate:
 			N = out[i]
 			new = random.choice(probability[N])
-			out = out[:i] + new + out[i+1:]
-			j+=1
-		return out
+			out[i] = new
+		return "".join(out)
 
 
 
