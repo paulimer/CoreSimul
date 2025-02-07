@@ -5,6 +5,10 @@ import os
 import sys
 import time
 
+from extract_names import extract_names
+from branch_length import branch_length
+from simulation import simulation
+
 version = sys.version
 
 
@@ -195,13 +199,16 @@ if tag==1:
 	
 
 print("1. Reading the tree")
-os.system("python " +  loc + "extract_names.py " + path + " " + TREE)
+# os.system("python " +  loc + "extract_names.py " + path + " " + TREE)
+extract_names(path,TREE)
 
 
 
 print("2. Extracting branch lengths and topology")
 
-os.system("python " + loc + "branch_length.py " + path  + " renamed.tree"  )
+# os.system("python " + loc + "branch_length.py " + path  + " renamed.tree"  )
+branch_length(path, "renamed.tree")
+
 
 
 
@@ -221,22 +228,12 @@ print("SUBSTITUTION MODEL= ",model, "with rate(s) ",sub_rate)
 print("GAIN_RATE=",gain_rate)
 print("LOSS_RATE=",loss_rate)
 print("MIN_DELTA=",min_delta)
+print("EXP_COEFF=",exp_coeff)
+print("DELTA=",DELTA)
+print("RHO=",COEFF)
 print("################\n")
 
 
-os.system("python " + loc + "simulation.py " + str(rseed) + " " + str(exp_coeff) + " " + min_delta + " " + loss_rate + " " + gain_rate + " " + model + " " + sub_rate + " "  + path_to_seq + " " + sub + " " + str(kappa) + " " + str(GC) + " " + str(L) +  " " + str(COEFF) + " " + str(DELTA) + " "  + str(coeff) + " " + path)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# os.system("python " + loc + "simulation.py " + str(rseed) + " " + str(exp_coeff) + " " + min_delta + " " + loss_rate + " " + gain_rate + " " + model + " " + sub_rate + " "  + path_to_seq + " " + sub + " " + str(kappa) + " " + str(GC) + " " + str(L) +  " " + str(COEFF) + " " + str(DELTA) + " "  + str(coeff) + " " + path)
+simulation(rseed, exp_coeff, min_delta, loss_rate, gain_rate, model, sub_rate, path_to_seq, sub, kappa, GC, L, COEFF, DELTA, coeff, path)
