@@ -1,8 +1,0 @@
-rm= 0.504857909544799
-Rho= 1.0
-Delta= 200
-Nu= 0.0025242895477239954
-Total_mutations= 11717
-Total_recombination_events= 10698
-Gene gains= 8
-Gene losses= 17

@@ -1,0 +1,8 @@
+rm= 0.0
+Rho= 0.0
+Delta= 100
+Nu= NA
+Total_mutations= 12306
+Total_recombination_events= 0
+Gene gains= 0
+Gene losses= 0
