@@ -383,6 +383,9 @@ def simulation(rseed, exp_coeff, min_delta, loss_rate, gain_rate, MATRIX, sub_ra
 		AT = 10000-GC
 		AT = round(AT,0)
 
+		# fix the bug where L != len(seq)
+		L = len(seq)
+
 		#print(GC," ",AT)
 		ALPHA=[]
 		i=0
